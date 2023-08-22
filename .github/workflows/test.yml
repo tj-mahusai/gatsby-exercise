@@ -21,14 +21,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Depcheck
-        uses: dependency-check/Dependency-Check_Action@main
+      - uses: dependency-check/Dependency-Check_Action@main
         with:
           project: 'gatsby'
           path: '.'
           format: 'HTML'
-      - name: Upload Test Results
-        uses: actions/upload-artifact@master
+      - uses: actions/upload-artifact@master
         with:
           name: Dependency Check Report
           path: ${{github.workspace}}/reports
@@ -37,7 +35,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: nodejsscan scan
       - uses: ajinabraham/njsscan-action@master
         with:
           args: '.'
