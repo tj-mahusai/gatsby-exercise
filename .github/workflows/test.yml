@@ -3,8 +3,6 @@ run-name: Test CI/CD
 
 on:
   push:
-  pull_request:
-    types: [opened, reopened]
 
 jobs:
   test:
