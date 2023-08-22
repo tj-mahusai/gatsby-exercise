@@ -1,5 +1,5 @@
-name: Build CI/CD
-run-name: Build CI/CD
+name: Build and Deploy CI/CD
+run-name: Build and Deploy CI/CD
 
 on:
   workflow_run:
@@ -62,4 +62,19 @@ jobs:
         uses: actions/upload-pages-artifact@v2
         with:
           path: ./public
+  
+  deploy:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      pages: write
+      id-token: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
 
