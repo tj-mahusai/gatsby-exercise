@@ -143,7 +143,7 @@ const IndexPage: React.FC<PageProps> = () => {
         Congratulations
         <br />
         <span style={headingAccentStyles}>
-          — you just made your sample TJ Site! 🎉🎉🎉
+          — you just made your sample TJ gatsby Site! 🎉🎉🎉
         </span>
       </h1>
       <p style={paragraphStyles}>
